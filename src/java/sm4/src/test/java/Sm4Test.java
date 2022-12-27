@@ -1,0 +1,31 @@
+import com.example.utils.Sm4Util;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+public class Sm4Test {
+
+    @Test
+    public void TestEcb(){
+        try {
+            String data = "我和我的祖国\r\n一刻也不能分割\r\n无论我走到哪里\r\n都流出一首赞歌\r\n我歌唱每一座高山\r\n我歌唱每一条河\r\n袅袅炊烟 小小村落\r\n路上一道辙\r\n我最亲爱的祖国\r\n我永远紧依着你的心窝\r\n你用你那母亲的脉搏\r\n和我诉说\r\n我的祖国和我\r\n像海和浪花一朵\r\n浪是那海的赤子\r\n海是那浪的依托\r\n每当大海在微笑\r\n我就是笑的旋涡\r\n我分担着海的忧愁\r\n分享海的欢乐\r\n我最亲爱的祖国\r\n你是大海永不干涸\r\n永远给我碧浪清波\r\n心中的歌";
+            //String key = "98145489617106616498";
+            String key ="ceshi20221212";
+            String encryptEcb = Sm4Util.encryptEcb(key,data);
+            System.out.println("encryptEcb:"+encryptEcb);
+            String csharpResult = "e30f82bc43343b1e156f1f7e20297fe37e6393bfa5dade0b2bfad573cece20b503db918ae6d39c0ad29a655c18e940873a07b0816dc5f2e59f80c8a3da77eba7d3a9bb9a10b6cea1b5467330b89b34b39856a9ea6cb2c988a9ab53c6aee07a596e57b415e8b885d7cdd17e668f2d4f907a83cc88c79aadb47747f0e869e03f13dd8117c31c2a1dd6d882ca511de2c9230ce7fb6c59a208a12fcfa133250feb739efaa462ea1ad32cd25e15b55d54affdbe7e4dbb52663f2604a717bc188da8cf65dc77d8d88faf39a1153115e994bfa0dda5ab9c7b311b25285b594fe05f5b9a87dbef298d66525e1fd48660d6bc54200a0749e90bf4716477fc571dfb1485989d84806d00b308adf9cbb08263091d1072ee5a7cb4d790ce350a3b976d5c626877a78a537d62b464cd7704bed9d9c09882bf4140c84a4eeb6a5a539704e3e0b75ba53cc48e280a41c585cc68e567ac8b71c051ab40d042281b42b93903214e43ce26906c7810b43b95d4698fbd86ebff692bdb637465557da34ab2e688e83933ceec75c7111a4be1f86009202481586263e822794172e983221f643a57c4f472dc1dff201893a60480e3b8671a03cbe9bd4bb6148d30764424ac17379b443fa36c9996aceca55b58be12d64af326889d9a0d796a70f292ff1f337636b5a3a2898ad77aaf9fd6c3c2a06042f5721666b00c5f137dbaae0e5e3839cd204e1bf32c1f32c7e2344e29d1aab9c0d88924c784a2f3412eb9e972a8a8eaa27f15d8ad38d9014af21dfe63b1fb217290cada4f94";
+            Assert.assertEquals(csharpResult,encryptEcb);
+
+            String decryptEcb = Sm4Util.decryptEcb(key,encryptEcb);
+            System.out.println("decryptEcb:"+decryptEcb);
+            Assert.assertEquals(decryptEcb,data);
+
+        }catch (Exception ex){
+
+        }
+    }
+}
