@@ -2,7 +2,7 @@
 java和c#国产加密算法sm4实现
 
 ### 代码示例 
-#### c#
+#### c#示例
 ```csharp
 using Sm4;
 
@@ -47,7 +47,7 @@ Console.WriteLine("DecryptECB2:{0}", decryptECB2);
 
 Console.ReadLine();
 ```
-#### java
+#### java示例
 ```java
 @Test
 public void TestEcb(){
@@ -65,6 +65,7 @@ public void TestEcb(){
       Assert.assertEquals(decryptEcb,data);
 
   }catch (Exception ex){
+  
   }
 }
 ```
